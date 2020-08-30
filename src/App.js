@@ -4,7 +4,6 @@ import Cart from "./components/cart";
 import Navbar from "./components/navbar";
 import Product from "./components/product";
 import store from "./redux/store";
-import { toggleCart } from "./redux/shop/actions";
 
 import "./App.css";
 
