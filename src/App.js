@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Shop from "./components/shop";
+import Cart from "./components/cart";
+import Navbar from "./components/navbar";
+import Product from "./components/product";
+import store from "./redux/store";
+import { toggleCart } from "./redux/shop/actions";
 
-function App() {
+import "./App.css";
+
+export default function App() {
+  const { shopReducer } = store.getState();
+  const [toggleCart, setToggleCart] = useState(false);
+  const products = shopReducer.products;
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar>
+        <img
+          onClick={() => store.dispatch(toggleCart())}
+          className="cart-icon"
+          src="https://image.flaticon.com/icons/svg/102/102276.svg"
+          alt="cart"
+        />
+        <button onClick={() => setToggleCart(!toggleCart)}>Carrito</button>
+        {toggleCart ? <Cart /> : null}
+      </Navbar>
+      <Shop>
+        {products.map((product) => {
+          return <Product key={product.id} product={product} />;
+        })}
+      </Shop>
     </div>
   );
 }
-
-export default App;

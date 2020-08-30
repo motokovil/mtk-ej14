@@ -1,38 +1,107 @@
+:root {
+  --main-blue: #1cbeda;
+}
+body {
+  background-color: #f4f4f4;
+}
+
 .App {
+  font-family: sans-serif;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar {
+  display: flex;
+  background-color: rgb(35, 35, 35);
+  height: 10vh;
+  width: 100%;
+  justify-content: space-around;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.navbar > h3 {
+  color: #fff;
+}
+
+.shop-container {
+  width: 90%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: auto;
+}
+
+.cart {
+  background-color: #fff;
+  padding: 1em;
+  border-radius: 4px;
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  right: 15%;
+  box-shadow: 1px 1px 5px #000;
+  top: 5%;
+}
+
+.cart-icon {
+  color: #fff;
+}
+.cart img {
+  max-height: 30px;
+}
+
+/* Product */
+.product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 85%;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 20px;
+  margin: 30px 0;
+  padding: 20px 10px;
+  transition: background-color 300ms ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.product > img {
+  max-height: 35vh;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product:hover {
+  background-color: rgb(244, 244, 244);
+}
+
+.logo {
+  width: 350px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Helpers */
+.btn {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 30px;
+  background-color: var(--main-blue);
+  color: #fff;
+  transition: background-color 300ms ease-in-out;
+}
+.btn:hover {
+  background-color: #148da3;
+}
+.shadow {
+  -webkit-box-shadow: 10px 4px 58px -33px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 10px 4px 58px -33px rgba(0, 0, 0, 0.45);
+  box-shadow: 10px 4px 58px -33px rgba(0, 0, 0, 0.45);
+}
+/* Letetring */
+.bold {
+  font-weight: bold;
+}
+/* Debug */
+.debug {
+  border: 1px solid red;
 }
