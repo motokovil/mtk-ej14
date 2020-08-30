@@ -96,7 +96,7 @@ const INITIAL_STATE = {
         return { ...previousState, cart: newCart };
       case "DELETE_PROD":
         const productsCart = [...previousState.cart];
-        if (productsCart[action.payload-1].quantity > 1) {
+        if (productsCart[action.payload-1].quantity >= 1) {
           let product = productsCart.findIndex(p=>p.id===action.payload)
           productsCart[product].quantity-=1;
         } else {
