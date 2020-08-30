@@ -13,9 +13,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import SkipNextIcon from '@material-ui/icons/SkipNext';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,7 +54,7 @@ export default function Cart() {
       <div className="cart">
         {cart.map((element, index) => {
           return (
-            <Card className={classes.root}>
+            <Card key={index} className={classes.root}>
               <div className={classes.details}>
                 <CardContent className={classes.content}>
                   <Typography component="h5" variant="h5">
@@ -68,13 +65,15 @@ export default function Cart() {
                   </Typography>
                 </CardContent>
                 <div className={classes.controls}>
-                  <IconButton>
+                  <IconButton
+                  onClick={() => store.dispatch(deleteProduct(element.id))}>
                     -
                   </IconButton>
                   <IconButton>
                     {element.quantity}
                   </IconButton>
-                  <IconButton>
+                  <IconButton
+                  onClick={() => store.dispatch(carrito(element.id))}>
                      + 
                   </IconButton>
                 </div>

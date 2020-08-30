@@ -12,7 +12,6 @@ export default function CartTotal (props){
                 let result = obj.price*obj.quantity
                 total+=result
             }
-            
         })
         return total
     }
