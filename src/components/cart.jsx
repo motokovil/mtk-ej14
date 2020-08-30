@@ -7,7 +7,7 @@ import { deleteProduct, carrito } from "../redux/shop/actions";
 import CartTotal from "./cartTotal"
 
 //MUI
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme) => ({
   },
   controls: {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: "left",
     paddingLeft: theme.spacing(1),
     paddingBottom: theme.spacing(1),
   },
   playIcon: {
-    height: 20,
-    width: 20,
+    height: 10,
+    width: 10,
   },
 }));
 
@@ -46,7 +46,6 @@ export default function Cart() {
     const { cart } = store.getState().shopReducer;
     //MUI 
     const classes = useStyles();
-    const theme = useTheme();
 
 
     return (
