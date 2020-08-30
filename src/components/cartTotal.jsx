@@ -4,8 +4,7 @@ export default function CartTotal (props){
 
     let total =(array)=>{
         let total = 0
-        array.map(obj=>{
-
+        array.forEach(obj=>{
             if(obj.quantity===1){
                 total+=obj.price
             }else if(obj.quantity>1){
